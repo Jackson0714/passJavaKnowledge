@@ -18,7 +18,7 @@
 2. 初始化master字典和服务器信息.服务器信息主要保存ip::port,并记录实例的地址跟ID
 3. 创建和master的两个链接.命令链接和订阅链接.并且订阅sentinel:hello频道.
 4. 每隔10秒向master发送info命令,获取master和他下面的slave的当前信息.
-5. 当发现master有新的slave之后,sentinel和新的slave同样简历两个链接,同时每隔10秒发送info命令,更新master信息.
+5. 当发现master有新的slave之后,sentinel和新的slave同样建立两个链接,同时每隔10秒发送info命令,更新master信息.
 6. sentinel 每隔1秒向所有服务器发送ping命令,如果某台服务器在配置的响应时间内链接返回无效回复,会被标记为下线状态.
 7. 选出领头的sentinel,领头的sentinel需要半数以上的sentinel同意
 8, 领头的sentinel从已下线的master的所有slave中挑选一个,将其转换成master
